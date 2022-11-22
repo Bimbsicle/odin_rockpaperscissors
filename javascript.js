@@ -3,7 +3,7 @@ function getComputerChoice() {
     return pcChoice[Math.floor(Math.random() * 2)];
 }
 
-function RockPaperScissors(computerSelection, playerSelection){
+function playRound(computerSelection, playerSelection){
     let playerChoice = playerSelection.toUpperCase();
 
     if (playerChoice === "ROCK" && computerSelection === "Rock") {
