@@ -13,28 +13,33 @@ paperbtn.addEventListener('click', game)
 scissorsbtn.addEventListener('click', game)
 
 function game(){
+    announcer.innerHTML = ''
     let result = playRound(getComputerChoice(), 'Rock')
     if (result === 'true'){ 
         playerPoint += 1
+        announcer.innerHTML = 'You Won!'
     }
     else if (result === 'false'){
         pcPoint += 1
+        announcer.innerHTML = 'You Lost!'
     }
     else {
         playerPoint += 0
+        announcer.innerHTML = 'You Tied!'
     }
+    
     scoreCheck(playerPoint, pcPoint)
     scoreboard.innerHTML = `Your Score: ${playerPoint} VS PC Score: ${pcPoint}`
 }
 
 function scoreCheck(playerScore, pcScore){
     if (playerScore >= 5) {
-        announcer.innerHTML = `Congratulations, you won!`
+        announcer.innerHTML = `Congratulations, you reached 5 points!`
         playerPoint = 0
         pcPoint = 0
     }
     else if (pcScore >=5) {
-        announcer.innerHTML = `Unlucky, you lost!`
+        announcer.innerHTML = `Unlucky, the computer reached 5 points!`
         playerPoint = 0
         pcPoint = 0
     }
